@@ -23,9 +23,11 @@ class Slider extends Component {
     this.ccRef = React.createRef();
     this.onDragEnd = this.onDragEnd.bind(this);
     this.onDragStart = this.onDragStart.bind(this);    
+    this.goLeft = this.goLeft.bind(this);    
+    this.goRight = this.goRight.bind(this);    
   }
   componentDidMount(){
-      if(this.props.startIndex){          
+      if(this.props.startIndex){           
           this.setState({offset:-this.sliderRef.current.getBoundingClientRect().width*this.props.startIndex})
       }
   }
@@ -61,6 +63,21 @@ class Slider extends Component {
       offset
     });
   };
+  goRight(){
+    const slideWidth = this.sliderRef.current.getBoundingClientRect().width;
+    const minOffset = slideWidth - this.ccRef.current.getBoundingClientRect().width;
+    const offset = Math.max(this.state.offset -slideWidth,minOffset);
+    this.setState({
+      offset
+    });
+  }
+  goLeft(){
+    const slideWidth = this.sliderRef.current.getBoundingClientRect().width;
+    const offset = Math.min(this.state.offset +slideWidth,0);
+    this.setState({
+      offset
+    });
+  }
   render() {
     const onMouseMove = this.state.dragging ? this.onMouseMove : null;
     return (
@@ -82,6 +99,12 @@ class Slider extends Component {
           </div>
           <i className="icon-close" onClick={this.props.onClose}>
             &times;
+          </i>
+          <i className="icon-right" onClick={this.goRight}>
+            	&#707;
+          </i>
+          <i className="icon-left" onClick={this.goLeft}>
+           	&#706;
           </i>
         </div>
         <style>{`
@@ -105,11 +128,29 @@ class Slider extends Component {
                 .icon-close{
                     cursor:pointer;
                     position:absolute;
-                    right:10px;
+                    right:15px;
                     top:0px;
                     font-size:60px;
                     color:white;
                     font-weight:600;
+                }
+                .icon-left{
+                  cursor:pointer;
+                  position:absolute;
+                  left:5px;
+                  top:45%;
+                  font-size:60px;
+                  color:white;
+                  font-weight:600;
+                }
+                .icon-right{
+                  cursor:pointer;
+                  position:absolute;
+                  right:5px;
+                  top:45%;
+                  font-size:60px;
+                  color:white;
+                  font-weight:600;
                 }
             `}</style>
       </React.Fragment>
