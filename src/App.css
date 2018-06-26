@@ -3,16 +3,6 @@
   --sec-color: rgba(68, 198, 253, 1); 
 }
 
-.App {
-  margin-top:5vw;
-  text-align: center;
-}
-
-.App-title{
-  font-weight:300;
-  margin-bottom:60px;
-}
-
 body {
   background: url('./img/bg.png');
   background-repeat:repeat;
@@ -24,65 +14,4 @@ body {
 
 .color-secondary{
   color:var(--sec-color);
-}
-.member-list{
-  display:flex;
-  justify-content:center;
-  max-width:700px;
-  flex-wrap:wrap;
-  margin:auto;
-  position:relative;
-}
-
-.member{
-  max-width:100px;
-  padding:20px;
-  position:relative;
-}
-
-.member:hover{
-  cursor:pointer;
-  background:rgba(194, 236, 254, 0.5);
-}
-
-.member-image{
-  max-width:100%;
-  border-radius: 50%;
-  filter:sepia(100%) contrast(30%) brightness(110%) hue-rotate(172deg) saturate(1000%)
-}
-
-.member-name{
-  margin: auto;
-  margin-top: 5px;
-  font-weight:300;
-}
-
-.member-location{
-  margin: auto;
-  margin-top: 5px;
-  font-size:11px;
-}
-
-.member-position{
-  margin: auto;
-  margin-top: 5px;
-  font-size:11px;
-
-}
-
-.icon-mail{
-  position:absolute;
-  right:15px;
-  top:15px;
-  border-radius:50%;
-  color:white;
-  background:var(--main-color);
-  width:30px;
-  height:30px;
-}
-
-.icon-inside{
-  position:absolute;
-  top:2.5px;
-  left:7px;
 }

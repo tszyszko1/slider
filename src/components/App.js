@@ -14,6 +14,7 @@ class App extends Component {
     };
     this.toggleSlider = this.toggleSlider.bind(this);
   }
+
   toggleSlider = i => () =>
     this.setState({ showSlider: !this.state.showSlider, memberIndex: i });
 
@@ -39,17 +40,87 @@ class App extends Component {
           )}
         </div>
         <style>{`
-        @keyframes slideIn {
-          0%   { left:200px; opacity: 0 }
-          25%  { left:-200px; opacity: 0.25 }
-          100% { left:0px; opacity: 1 }
-        }
+          @keyframes slideIn {
+            0%   { left:200px; opacity: 0 }
+            100% { left:0px; opacity: 1 }
+          }
           #slider-container{
             width:100%;
             height:100%;
             position:absolute;
             animation-name: slideIn;
             animation-duration: 1s;
+          }
+          .App {
+            margin-top:5vw;
+            text-align: center;
+          }
+          
+          .App-title{
+            font-weight:300;
+            margin-bottom:60px;
+          }
+
+          .icon-mail{
+            position:absolute;
+            right:15px;
+            top:15px;
+            border-radius:50%;
+            color:white;
+            background:var(--main-color);
+            width:30px;
+            height:30px;
+          }
+          
+          .icon-inside{
+            position:absolute;
+            top:2.5px;
+            left:7px;
+          }
+
+          .member-list{
+            display:flex;
+            justify-content:center;
+            max-width:700px;
+            flex-wrap:wrap;
+            margin:auto;
+            position:relative;
+          }
+          
+          .member{
+            max-width:100px;
+            padding:20px;
+            position:relative;
+          }
+          
+          .member:hover{
+            cursor:pointer;
+            background:rgba(194, 236, 254, 0.5);
+          }
+          
+          .member-image{
+            max-width:100%;
+            border-radius: 50%;
+            filter:sepia(100%) contrast(30%) brightness(110%) hue-rotate(172deg) saturate(1000%)
+          }
+          
+          .member-name{
+            margin: auto;
+            margin-top: 5px;
+            font-weight:300;
+          }
+          
+          .member-location{
+            margin: auto;
+            margin-top: 5px;
+            font-size:11px;
+          }
+          
+          .member-position{
+            margin: auto;
+            margin-top: 5px;
+            font-size:11px;
+          
           }
         `}</style>
       </div>
