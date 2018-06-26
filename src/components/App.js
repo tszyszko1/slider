@@ -39,16 +39,16 @@ class App extends Component {
           )}
         </div>
         <style>{`
-        @keyframes example {
-          0%   { left:200px; opacity: 0,width:0% }
-          25%  { left:-200px; opacity: 0.25,width:0% }
-          100% { left:0px; opacity: 1,width:100 %}
+        @keyframes slideIn {
+          0%   { left:200px; opacity: 0 }
+          25%  { left:-200px; opacity: 0.25 }
+          100% { left:0px; opacity: 1 }
         }
           #slider-container{
             width:100%;
             height:100%;
             position:absolute;
-            animation-name: example;
+            animation-name: slideIn;
             animation-duration: 1s;
           }
         `}</style>

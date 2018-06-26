@@ -41,6 +41,7 @@ class Slider extends Component {
     e.preventDefault();
   }
   onDragEnd() {
+    this.ccRef.current.classList.add('animate')
     const childWidth = this.sliderRef.current.getBoundingClientRect().width
     const borderPoints = this.props.children.map((c,i)=>-i*childWidth)
     const offset = findClosestValueInArray(borderPoints,this.state.offset)    
@@ -63,7 +64,8 @@ class Slider extends Component {
       offset
     });
   };
-  goRight(){
+  goRight(){  
+    this.ccRef.current.classList.add('animate')    
     const slideWidth = this.sliderRef.current.getBoundingClientRect().width;
     const minOffset = slideWidth - this.ccRef.current.getBoundingClientRect().width;
     const offset = Math.max(this.state.offset -slideWidth,minOffset);
@@ -72,6 +74,7 @@ class Slider extends Component {
     });
   }
   goLeft(){
+    this.ccRef.current.classList.add('animate')
     const slideWidth = this.sliderRef.current.getBoundingClientRect().width;
     const offset = Math.min(this.state.offset +slideWidth,0);
     this.setState({
@@ -79,7 +82,9 @@ class Slider extends Component {
     });
   }
   render() {
-    const onMouseMove = this.state.dragging ? this.onMouseMove : null;
+    const onMouseMove = this.state.dragging ? this.onMouseMove : null;    
+    const slideWidth = this.sliderRef.current && this.sliderRef.current.getBoundingClientRect().width;
+
     return (
       <React.Fragment>
         <div className="slider" ref={this.sliderRef}>
@@ -151,6 +156,9 @@ class Slider extends Component {
                   font-size:60px;
                   color:white;
                   font-weight:600;
+                }
+                .animate{
+                  transition-duration: 1s;
                 }
             `}</style>
       </React.Fragment>
