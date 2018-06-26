@@ -70,12 +70,13 @@ class App extends Component {
             background:var(--main-color);
             width:30px;
             height:30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
           }
           
           .icon-inside{
-            position:absolute;
-            top:2.5px;
-            left:7px;
+            padding-bottom:2px;
           }
 
           .member-list{
